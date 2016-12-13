@@ -4,11 +4,11 @@ class Walker(object):
     def __init__(self, tempx, tempy):
         self.x = tempx
         self.y = tempy
-        
+
     def display(self):
         stroke(0)
         point(self.x, self.y)
-        
+
     def step(self):
         choice = int(random(4))
         if choice == 0:
@@ -27,9 +27,7 @@ def setup():
     w = Walker(width/2, height/2)
     size(640, 360)
     background(255)
-    
+
 def draw():
     w.step()
-    w.display()        
-
-    
+    w.display()
