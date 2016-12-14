@@ -1,25 +1,26 @@
 
+
 add_library('serial')
 port = None
 val = 0.0
 x = 0
 easing = 0.05
-esedVal = 0.0
+easedVal = 0.0
 
 def setup():
     global port
     size(440, 220)
     frameRate(30)
     
-    arduinoPort = Serial.list()[0]
+    arduinoPort = Serial.list()[4]
     port = Serial(this, arduinoPort, 9600)
     background(0)
 
 def draw():
     global x, val, easedVal
-    if port.avaible() > 0:
+    if port.available() > 0:
         val = port.read()
-        val = map(val, 0, 255, 0, height)
+        val = map(val, 0, 4, 0, height)
     targetVal = val
     easedVal += (targetVal - easedVal) + easing
     
